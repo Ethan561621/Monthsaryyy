@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 2nd Monthsary</title>
+
+  <!-- Romantic Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      color: white;
+      font-family: 'Dancing Script', cursive;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    #message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      max-width: 90%;
+      font-size: 1.5rem;
+      line-height: 1.8;
+    }
+
+    #glow {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: white;
+      animation: glow 2s infinite alternate;
+      display: none;
+      margin-top: 30px;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px red, 0 0 20px pink;
+      }
+      to {
+        text-shadow: 0 0 20px hotpink, 0 0 30px red;
+      }
+    }
+
+    .heart {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 5s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -5px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -5px;
+      top: 0;
+    }
+
+    @keyframes float {
+      to {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <audio id="bg-music" autoplay loop>
+    <source src="song.mp3" type="audio/mpeg" />
+    Your browser does not support the audio tag.
+  </audio>
+
+  <div id="message">
+    Baby happy 2nd monthsary I know we are still at the start but I am already so thankful for everything your time your love your patience and your presence I appreciate you more than I can ever say I hope we continue to grow together I hope we share many more days like this and more memories full of laughter love and peace Thank you for being mine I will always care for you cherish you and stay by your side
+    <div id="glow">I love you</div>
+  </div>
+
+  <script>
+    const glow = document.getElementById('glow');
+
+    // Show glowing text after 10 seconds
+    setTimeout(() => {
+      glow.style.display = 'block';
+    }, 10000);
+
+    // Create floating hearts
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = '100vh';
+      heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
